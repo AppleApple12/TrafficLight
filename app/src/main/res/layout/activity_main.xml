@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2"  />
+        app:layout_constraintGuide_percent="0.2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,9 +37,9 @@
         android:text="開始遊戲"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/gl2"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnEnd"
-        app:layout_constraintHorizontal_chainStyle="packed"/>
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnEnd"
@@ -51,5 +51,46 @@
         app:layout_constraintBottom_toTopOf="@+id/gl2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnStart" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <EditText
+        android:id="@+id/edt1"
+        android:layout_width="180dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="請輸入綠燈秒數"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/edt2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl3" />
+
+    <EditText
+        android:id="@+id/edt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="請輸入黃燈秒數"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/edt3"
+        app:layout_constraintStart_toEndOf="@+id/edt1"
+        app:layout_constraintTop_toTopOf="@+id/gl3" />
+
+    <EditText
+        android:id="@+id/edt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="請輸入紅燈秒數"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edt2"
+        app:layout_constraintTop_toTopOf="@+id/gl3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
