@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+        TextView green,yellow,red;
+        String greensec,yellowsec,redsec;
+        int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +30,36 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         setContentView(R.layout.activity_main);
+        green=(TextView)findViewById(R.id.edt1);
+        yellow=(TextView)findViewById(R.id.edt2);
+        red=(TextView)findViewById(R.id.edt3);
+
+        greensec = green.getText().toString();
+        yellowsec =yellow.getText().toString();
+        redsec = red.getText().toString();
+
+       // int g1=Integer.parseInt(greensec);
+        //int y1=Integer.parseInt(yellowsec);
+        //int r1=Integer.parseInt(redsec);
+
     }
     public void StartGame(View v){
         Intent it = new Intent();
         it.setClass(this, GameActivity.class);
-        startActivity(it);
-        finish();
+        if(greensec.equals("0") || yellowsec.equals("0") || redsec.equals("0")){
+            count++;
+        }
+        if(count>0){
+            Toast.makeText(this, "燈號的秒數不能為0",Toast.LENGTH_SHORT)
+                    .show();
+        }
+        if(green.getText().toString().matches("") || yellow.getText().toString().matches("") || red.getText().toString().matches("")){
+            Toast.makeText(this, "燈號的秒數不能為空白",Toast.LENGTH_SHORT)
+                    .show();
+        }else {
+            startActivity(it);
+            finish();
+        }
     }
 
     public void EndApp(View v){
